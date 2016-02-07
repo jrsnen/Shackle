@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Shackle" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Linux_Debug">
+				<Option output="lib/libShackle_d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output=".obj/LDebug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Linux_Release">
+				<Option output="lib/libShackle" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output=".obj/LRelease/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DNDEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Linux_test">
+				<Option output="Unittest" prefix_auto="1" extension_auto="1" />
+				<Option object_output=".obj/Ltest" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-fprofile-arcs" />
+					<Add option="-ftest-coverage" />
+				</Compiler>
+				<Linker>
+					<Add option="-lgcov" />
+					<Add library="GL" />
+					<Add library="OgreMain" />
+					<Add library="OgreTerrain" />
+					<Add library="OIS" />
+					<Add library="CEGUIBase" />
+					<Add library="CEGUIOgreRenderer" />
+					<Add library="boost_system" />
+					<Add library="boost_thread" />
+					<Add library="luabind" />
+					<Add library="lua" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="lcov  -d $(PROJECT_DIR)  --zerocounters" />
+					<Add before="cxxtestgen --error-printer -o $(PROJECT_DIR)tests/tests.cc $(PROJECT_DIR)tests/*.hh" />
+					<Add after="./$(TARGET_OUTPUT_FILE)" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Linux32_Release">
+				<Option output="libShackle32" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output=".obj/L32R" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-m32" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Win32_Release">
+				<Option output="lib/Shackle32.lib" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output=".obj/W32R" />
+				<Option type="2" />
+				<Option compiler="mingw32" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-fno-strict-aliasing" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-fident" />
+					<Add option="-DWIN32" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DNDEBUG" />
+					<Add directory="../kirjastot/windows32/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-Wl,--enable-auto-image-base" />
+					<Add option="-Wl,--add-stdcall-alias" />
+					<Add option="-Wl,--enable-auto-import" />
+					<Add library="../kirjastot/winlibs/libboost_thread.lib" />
+				</Linker>
+			</Target>
+			<Target title="Win64_Release">
+				<Option output="Shackle64.lib" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output=".obj/W32R" />
+				<Option type="2" />
+				<Option compiler="mingw32w64" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-fno-strict-aliasing" />
+					<Add option="-mthreads" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-fexceptions" />
+					<Add option="-fident" />
+					<Add option="-DWIN64" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DNDEBUG" />
+					<Add directory="/usr/local/include" />
+					<Add directory="/home/joni/.ogre/ogre_src_v1-7-3/OgreMain/include" />
+					<Add directory="/usr/amd64-mingw32msvc/include" />
+					<Add directory="../kirjastot/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="/home/joni/Projektit/game/Shackle/" />
+		</Compiler>
+		<Unit filename="common.hh" />
+		<Unit filename="core/enginecontroller.hh" />
+		<Unit filename="core/gameengine.cc" />
+		<Unit filename="core/gameengine.hh" />
+		<Unit filename="core/gamestate.hh" />
+		<Unit filename="core/statemanager.cc" />
+		<Unit filename="core/statemanager.hh" />
+		<Unit filename="core/worker.cc" />
+		<Unit filename="core/worker.hh" />
+		<Unit filename="engine/engine.lua">
+			<Option compile="1" />
+		</Unit>
+		<Unit filename="engine/graphics.lua">
+			<Option compile="1" />
+		</Unit>
+		<Unit filename="engine/plugins.cfg" />
+		<Unit filename="engine/resources.cfg" />
+		<Unit filename="filesystem/bind.cc" />
+		<Unit filename="filesystem/bind.hh" />
+		<Unit filename="filesystem/scripter.hh" />
+		<Unit filename="input/basiccallback.cc" />
+		<Unit filename="input/basiccallback.hh" />
+		<Unit filename="input/basiccontext.cc" />
+		<Unit filename="input/basiccontext.hh" />
+		<Unit filename="input/callback.hh" />
+		<Unit filename="input/context.hh" />
+		<Unit filename="input/guicallback.cc" />
+		<Unit filename="input/guicallback.hh" />
+		<Unit filename="input/inputmanager.cc" />
+		<Unit filename="input/inputmanager.hh" />
+		<Unit filename="input/inputtypes.hh" />
+		<Unit filename="input/rawinput.cc" />
+		<Unit filename="input/rawinput.hh" />
+		<Unit filename="input/rawinputtypes.hh" />
+		<Unit filename="input/replayer.cc" />
+		<Unit filename="input/replayer.hh" />
+		<Unit filename="output/dotsceneloader.cc" />
+		<Unit filename="output/dotsceneloader.hh" />
+		<Unit filename="output/dotsceneprocessor.cc" />
+		<Unit filename="output/dotsceneprocessor.hh" />
+		<Unit filename="output/graphicengine.cc" />
+		<Unit filename="output/graphicengine.hh" />
+		<Unit filename="output/userinterface.cc" />
+		<Unit filename="output/userinterface.hh" />
+		<Unit filename="output/xmlwrapper.cc" />
+		<Unit filename="output/xmlwrapper.hh" />
+		<Unit filename="tasks/macrotask.cc" />
+		<Unit filename="tasks/macrotask.hh" />
+		<Unit filename="tasks/simpletask.hh" />
+		<Unit filename="tasks/stringtask.hh" />
+		<Unit filename="tasks/task.hh" />
+		<Unit filename="tasks/uinttask.hh" />
+		<Unit filename="tests/basiccallbacktest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/basiccontexttest.lua">
+			<Option compile="1" />
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/contexttest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/dotsceneloadertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/gametest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/graphicsenginetest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/inputmanagertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/rawinputtest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/replayertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/replaytest.lua">
+			<Option compile="1" />
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/scriptertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/scriptertest.lua">
+			<Option compile="1" />
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/statemanagertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/tasktest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/tests.cc">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/userinterfacetest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/workertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Unit filename="tests/xmlwrappertest.hh">
+			<Option target="Linux_test" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<DoxyBlocks>
+				<comment_style block="2" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_preprocessor enable_preprocessing="0" />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<envvars />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory=" " header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix=" " />
+			</AutoVersioning>
+			<lib_finder>
+				<lib name="CEGUI-OGRE" />
+				<lib name="OIS" />
+			</lib_finder>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

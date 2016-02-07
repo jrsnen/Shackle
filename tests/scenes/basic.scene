@@ -1,0 +1,61 @@
+<scene exported_by="joni" formatVersion="1.0.1" previous_export_time="0" export_time="1343554521.494449" >
+	<nodes >
+		<node name="Sun.001" >
+			<position y="11.420194" x="46.864777" z="20.551025" />
+			<rotation qy="0.115006" qx="0.412257" qz="-0.499672" qw="0.753091" />
+			<scale y="1.000000" x="1.000000" z="1.000000" />
+			<game >
+				<sensors />
+				<actuators />
+			</game>
+			<light type="directional" name="Sun.001" powerScale="0.23999996483325958" >
+				<position y="11.420194" x="46.864777" z="20.551025" />
+				<lightAttenuation range="5000" quadratic="0.0" constant="1.0" linear="0.04" />
+				<direction y="-0.161" x="0.658" z="0.736" />
+				<colourDiffuse r="1.0" b="0.31362468004226685" g="0.4030284285545349" />
+				<colourSpecular r="1.0" b="0.31362468004226685" g="0.4030284285545349" />
+			</light>
+		</node>
+		<node name="Sphere" >
+			<position y="-0.015242" x="-0.495560" z="-1.502255" />
+			<rotation qy="0.000000" qx="0.000000" qz="-1.000000" qw="0.000000" />
+			<scale y="60.768711" x="60.768711" z="60.768711" />
+			<game >
+				<sensors />
+				<actuators />
+			</game>
+			<entity anisotropic_friction="False" lock_trans_y="False" damping_trans="0.03999999910593033" damping_rot="0.10000000149011612" inertia_tensor="0.4000000059604645" actor="False" velocity_min="0.0" lock_trans_z="False" physics_type="STATIC" lock_trans_x="False" meshFile="Sphere.mesh" friction_y="1.0" friction_x="1.0" friction_z="1.0" velocity_max="0.0" ghost="False" name="Sphere" mass_radius="1.0" mass="1.0" lock_rot_x="False" lock_rot_y="False" lock_rot_z="False" />
+		</node>
+		<node name="Camera" >
+			<position y="3.484491" x="-1.726762" z="13.289480" />
+			<rotation qy="-0.000000" qx="0.799758" qz="-0.000000" qw="0.600323" />
+			<scale y="1.000000" x="1.000000" z="1.000000" />
+			<game >
+				<sensors />
+				<actuators />
+			</game>
+			<camera projectionType="perspective" fov="0.5033799435163735" name="Camera" >
+				<clipping far="100.0" nearPlaneDist="0.10000000149011612" near="0.10000000149011612" farPlaneDist="100.0" />
+			</camera>
+		</node>
+		<node name="Hemi" >
+			<position y="19.663908" x="-23.974642" z="-20.750877" />
+			<rotation qy="-0.793127" qx="0.160231" qz="0.538040" qw="0.236197" />
+			<scale y="1.000000" x="1.000000" z="1.000000" />
+			<game >
+				<sensors />
+				<actuators />
+			</game>
+		</node>
+	</nodes>
+	<externals >
+		<item type="material" >
+			<file name="/home/joni/Projektit/game/Battle_Diary/game/Scenes/Skydome.material" />
+		</item>
+	</externals>
+	<environment >
+		<colourBackground r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+		<colourAmbient r="0.048615723848342896" b="0.08352802693843842" g="0.04194632172584534" />
+		<colourDiffuse r="0.05087608844041824" b="0.05087608844041824" g="0.05087608844041824" />
+	</environment>
+</scene>
